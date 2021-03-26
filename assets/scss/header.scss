@@ -1,0 +1,35 @@
+#layout-header {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    background: black;
+    color: blanchedalmond;
+    box-shadow: 1px 1px 1px 1px lightblue;
+
+    .mini-logo {
+      p {
+        margin: 10px;
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+    }
+
+    .auth-links {
+      ul {
+        display: flex;
+        margin: 5% 5px;
+
+        li {
+          margin-right: 30px;
+          list-style: none;
+        }
+      }
+    }
+
+    a {
+      color: rgb(23, 24, 24);
+      text-decoration: none;
+    }
+  }
+}

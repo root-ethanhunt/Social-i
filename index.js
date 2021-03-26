@@ -13,7 +13,16 @@ const passportLocal = require('./config/passport-local-strategy')
 // we can also use connect-mongo-session module to avoid error
 // i am using v3 module for connect-mongo
 const MongoStore = require('connect-mongo')(session)
+const sassMiddleware = require('node-sass-middleware')
 
+
+app.use(sassMiddleware({
+    src:'./assets/scss',
+    dest:'./assets/css',
+    debug:true,
+    outputStyle:'extended',
+    prefix:'/css'
+}))
 
 
 app.use(express.urlencoded())
