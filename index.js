@@ -10,6 +10,8 @@ const db = require('./config/mongoose')
 const session = require('express-session')
 const passport = require('passport')
 const passportLocal = require('./config/passport-local-strategy')
+const passportJwt = require('./config/passport-jwt-strategy')
+
 // we can also use connect-mongo-session module to avoid error
 // i am using v3 module for connect-mongo
 const MongoStore = require('connect-mongo')(session)
