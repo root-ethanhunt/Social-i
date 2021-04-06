@@ -11,6 +11,7 @@ const session = require('express-session')
 const passport = require('passport')
 const passportLocal = require('./config/passport-local-strategy')
 const passportJwt = require('./config/passport-jwt-strategy')
+const passportGoogle = require('./config/passport-google-oauth2-strategy')
 
 // we can also use connect-mongo-session module to avoid error
 // i am using v3 module for connect-mongo
