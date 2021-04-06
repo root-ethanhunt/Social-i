@@ -1,6 +1,7 @@
 const Comment =  require('../models/comment')
 const Post = require('../models/post')
 const commentMailer = require('../mailers/comments_mailer')
+const Like = require('../models/like')
 
 module.exports.create = async function(req,res){
 
@@ -17,12 +18,12 @@ module.exports.create = async function(req,res){
             post.save()
 
             comment = await comment.populate('user','name email').execPopulate()
-            commentMailer.newComment(comment)
+           // commentMailer.newComment(comment)
 
             if(req.xhr){
 
                // Similar for comments to fetch the user's id!
-               comment = await comment.populate('user', 'name').execPopulate()
+              // comment = await comment.populate('user', 'name').execPopulate()
 
               return res.status(200).json({
                 data:{
@@ -52,12 +53,18 @@ module.exports.destroy = async function(req,res){
 
         let comment = await Comment.findById(req.params.id)
         if(comment.user == req.user.id){
-            console.log(req.user.id)
+           // console.log(req.user.id)
             let postId = comment.post
             
             comment.remove()
 
          let post = await  Post.findByIdAndUpdate(postId,{$pull:{comments:req.params.id}})
+
+
+         // CHANGE :: destroy the associated likes for this comment
+         await Like.deleteMany({likeable: comment._id, onModel: 'Comment'});
+
+
 
          if(req.xhr){
           return res.status(200).json({
@@ -68,9 +75,12 @@ module.exports.destroy = async function(req,res){
           })
       }
 
+      req.flash('success', 'Comment deleted!')
+
          return res.redirect('back')
         }
         else{
+          req.flash('error', 'Unauthorized')
             return res.redirect('back')
         }
     }

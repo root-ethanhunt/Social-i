@@ -13,9 +13,28 @@
     <input type="submit" value="Update">
     </form>
 
+
+
     <%}else{%>
         <!-- else show only the profile -->
         <p><%= profile_user.name %></p>
         <p><%= profile_user.email %></p>
+        <!-- <p><%= profile_user._id %></p> -->
+
+
+        <a class="toggle-friend-button" href="/follows/toggle/?id=<%=profile_user._id%>" >
+            <button>Add Friend</button>
+        </a>
 
         <%}%>
+
+
+
+
+     
+
+
+
+
+
+
