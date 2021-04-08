@@ -1,6 +1,6 @@
 const Post = require('../models/post')
 const User = require('../models/user')
-//const Like = require('../models/like')
+const Like = require('../models/like')
 
 module.exports.home = async function(req,res){
    // res.cookie('user_id',25)
@@ -38,7 +38,8 @@ module.exports.home = async function(req,res){
       return res.render('home',{
          title: "Home",
          posts: posts,
-         all_users:users
+         all_users:users,
+
      })
 
    }catch(err){

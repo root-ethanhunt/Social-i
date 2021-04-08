@@ -4,7 +4,7 @@ const router = express.Router();
 const friendsController = require('../controllers/friendship_controller');
 
 
-router.get('/toggle', friendsController.toggleFollow);
+router.post('/toggle', friendsController.toggleFollow);
 
 
 module.exports = router;

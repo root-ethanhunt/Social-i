@@ -3,6 +3,9 @@ const router = express.Router()
 const passport = require('passport')
 
 const usersController = require('../controllers/users_controller')
+const friendsController = require('../controllers/friendship_controller')
+
+
 
 router.get('/profile/:id',passport.checkAuthentication,usersController.profile)
 router.post('/update/:id',passport.checkAuthentication,usersController.update)
@@ -21,6 +24,7 @@ router.post('/create-session',passport.authenticate(
 
 router.get('/auth/google',passport.authenticate('google',{scope:['profile','email']}))
 router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/user/sign-in'}),usersController.createSession)
+//router.post('/toggleFriendship', passport.checkAuthentication,friendsController.toggleFollow)
 
 router.get('/sign-out',usersController.destroySession)
 
