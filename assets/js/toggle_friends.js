@@ -21,10 +21,10 @@ class MakeFriendship{
           .done(function(data) {
             
               if (data.data.deleted == true){
-                $(self).html('Add as friend')
+                $(self).html('<button>ADD</button')
                   
               }else{
-                $(self).html('Remove')
+                $(self).html('<button>REMOVE</button')
               }
 
 

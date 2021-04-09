@@ -27,20 +27,39 @@
         </section>
        
       
-          
+          <aside>
+              <%if(locals.user){%>
+            <section id="all-Friends">
+                
+                <h4>
+                    Friends
+                </h4>
 
-        <section id="all-users">
-            <h4>
-                All Users
-            </h4>
-    
-            <% for(u of all_users){%>
-                <p>
-                    <a href="/users/profile/<%= u.id%>"><%= u.name%></a>
-                </p>
-                <%}%>
-    
-        </section>
+                <%for(var i=0;i<friends.length;i++){%>
+                    <p>
+                        <a href="/users/profile/<%= friends[i]._id%>"><%= friends[i].name%></a>
+                    </p>    
+            <%}%>
+        
+              <%}%>
+        
+            </section>
+
+            <section id="all-users">
+                <h4>
+                    All Users
+                </h4>
+        
+                <% for(u of all_users){%>
+                    <p>
+                        <a href="/users/profile/<%= u.id%>"><%= u.name%></a>
+                    </p>
+                    <%}%>
+        
+            </section>
+          </aside>
+
+        
 
       
     
