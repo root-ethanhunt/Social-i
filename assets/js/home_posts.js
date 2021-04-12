@@ -13,7 +13,7 @@
              success: function(data){
                 
                let newPost = newPostDom(data.data.post)
-              $('#posts-list-container>ul').prepend(newPost)
+              $('#posts-list-container>ul>#each-posts').prepend(newPost)
               deletePost($(' .delete-post-button',newPost))
 
               new PostComments(data.data.post._id);
@@ -48,19 +48,26 @@
    let newPostDom = function(post){
        return $(`<li id="post-${post._id}">
        <p>
+
+       <div id="profile-header">
+            <img src="${post.user.avatar}" alt=" ${post.user.name}" width="50" height="50">
+            ${post.user.name}
+        </div>
+
+     
+
+      <br>
+   
+      ${post.content} 
+      
          
            <small>
                <a class="delete-post-button" href="/posts/destroy/${ post._id}">X</a>
            </small>
           
-   
-           ${post.content}
-         <br>
-       <small>
-           ${post.user.name}
-       </small>
-
-       <br>
+   <br>
+   <br>
+        
        <small>
            
                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">

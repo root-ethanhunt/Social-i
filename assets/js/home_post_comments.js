@@ -65,6 +65,7 @@ class PostComments{
     newCommentDom(comment){
         // I've added a class 'delete-comment-button' to the delete comment link and also id to the comment's li
         return $(`<li id="comment-${ comment._id }">
+        
                         <p>
                             
                             <small>
@@ -76,7 +77,7 @@ class PostComments{
                             <small>
                                 ${comment.user.name}
                             </small>
-
+<br>
 
                             <small>
                             
@@ -101,7 +102,7 @@ class PostComments{
                 type: 'get',
                 url: $(deleteLink).prop('href'),
                 success: function(data){
-                    $(`#comment-${data.data.comment}`).remove()
+                    $(`#comment-${data.data.comment_id}`).remove()
                     //console.log(data)
 
                     new Noty({

@@ -1,8 +1,14 @@
 <link rel="stylesheet" href="/css/user_profile.css">
 
-<img src="<%=user.avatar %>" alt="<%= user.name %>" width="100">
 
+<div id="profile-page">
 
+    <div id="profile-photo">
+        <img src="<%=user.avatar %>" alt="<%= user.name %>" width="120" height="200">
+    </div>
+
+    <div id="update-info">
+  
 <% if(user.id == profile_user.id){%>
     <!-- if user matches then show the form -->
     <form action="/users/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST">
@@ -31,7 +37,10 @@
         </a>
 
         <%}%>
+    </div>
+    
 
+</div>
 
         <script type="text/javascript"src="/js/toggle_friends.js">
         </script>

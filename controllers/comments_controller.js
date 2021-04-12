@@ -2,6 +2,7 @@ const Comment =  require('../models/comment')
 const Post = require('../models/post')
 const commentMailer = require('../mailers/comments_mailer')
 const Like = require('../models/like')
+const User = require('../models/user')
 
 module.exports.create = async function(req,res){
 
@@ -19,6 +20,7 @@ module.exports.create = async function(req,res){
 
             comment = await comment.populate('user','name email').execPopulate()
            // commentMailer.newComment(comment)
+           //console.log(comment.user.name)
 
             if(req.xhr){
 
@@ -43,8 +45,7 @@ module.exports.create = async function(req,res){
     console.log('Error',err)
     return
   }
-
-  
+ 
    
 }
 
@@ -52,13 +53,15 @@ module.exports.destroy = async function(req,res){
     try{
 
         let comment = await Comment.findById(req.params.id)
+        // console.log(req.params.id)
+        //console.log(comment.post)
         if(comment.user == req.user.id){
            // console.log(req.user.id)
             let postId = comment.post
-            
+           
             comment.remove()
 
-         let post = await  Post.findByIdAndUpdate(postId,{$pull:{comments:req.params.id}})
+         let post = Post.findByIdAndUpdate(postId, {$pull: {comments: req.params.id}})
 
 
          // CHANGE :: destroy the associated likes for this comment
@@ -69,7 +72,7 @@ module.exports.destroy = async function(req,res){
          if(req.xhr){
           return res.status(200).json({
               data:{
-                  comment:req.params.id
+                  comment_id:req.params.id
               },
               message:'comment deleted'
           })
@@ -86,6 +89,7 @@ module.exports.destroy = async function(req,res){
     }
     catch(err){
         console.log('Error',err)
+        req.flash('Error',err)
     return 
     }
  
