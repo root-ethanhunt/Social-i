@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+const env = require('./environment') 
 
-const url = "mongodb+srv://social-i_app:9102764714@cluster0.ujvmk.mongodb.net/FirstDatabase?retryWrites=true&w=majority"
+const url =`mongodb://127.0.0.1:27017/${env.db}`
 
 mongoose.connect(url,{useNewUrlParser:true,useCreateIndex:true,useUnifiedTopology:true,useFindAndModify:true})
 

@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #404040; }
+
+.sign-in {
+  position: relative;
+  margin: 40px auto;
+  width: 300px;
+  padding: 33px 25px 29px;
+  background: white;
+  border-bottom: 1px solid #f5e6e6;
+  border-radius: 5px; }
+  .sign-in h1 {
+    text-align: center; }
+  .sign-in input {
+    height: 3%;
+    width: 97%;
+    margin: 5px; }
+  .sign-in p {
+    margin: auto;
+    height: 3%;
+    width: 97%;
+    border: 1px solid brown;
+    text-align: center; }
+    .sign-in p a {
+      margin: 35px;
+      text-decoration: none; }

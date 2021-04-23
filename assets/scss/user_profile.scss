@@ -10,27 +10,53 @@ body {
   font-family: sans-serif;
 }
 
-#profile-page {
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#profile-box {
+  position: relative;
+  margin: 40px auto;
+  width: 300px;
+  padding: 33px 25px 29px;
+  background: white;
+  border-bottom: 1px solid #f5e6e6;
+  border-radius: 5px;
+
   #profile-photo {
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
+    text-align: center;
+    display: block;
+    object-fit: scale-down;
+    img {
+      border-radius: 50%;
+    }
   }
 
-  #update-info {
-    form {
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
-    }
+  .profile-form {
     input {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      height: 3%;
+      width: 97%;
+      margin: 5px;
+    }
+    input[type="file"] {
+      height: 2%;
+      margin: 5px;
+      cursor: pointer;
+    }
+    input[type="submit"] {
+      cursor: pointer;
+    }
+  }
+
+  p {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  a {
+    margin-top: 20px;
+    text-align: center;
+    display: block;
+    button {
+      width: 68%;
+      height: 3%;
+      cursor: pointer;
     }
   }
 }

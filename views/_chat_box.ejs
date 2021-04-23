@@ -1,4 +1,7 @@
-<button id="open-button" onclick="openForm()">Chat</button>
+<% if (locals.user){%>
+	<button id="open-button" onclick="openForm()">Chat</button>
+<%}%>
+
 
 <div id="my-form">
 

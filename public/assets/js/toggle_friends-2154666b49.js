@@ -1,0 +1,1 @@
+class MakeFriendship{constructor(t){this.toggler=t,this.toggleFriend()}toggleFriend(){$(this.toggler).click((function(t){t.preventDefault();let e=this;$.ajax({type:"POST",url:$(e).attr("href")}).done((function(t){1==t.data.deleted?$(e).html("<button>ADD</button"):$(e).html("<button>REMOVE</button")})).fail((function(t){console.log("error in completing the request")}))}))}}
