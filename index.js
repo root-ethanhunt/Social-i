@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 //const bodyParser = require('body-parser');
 const app = express()
 require('./config/view-helpers')(app) 
-const port = process.env.PORT||8000
+const port = process.env.PORT||8080
 const expressLayouts = require('express-ejs-layouts')
 const db = require('./config/mongoose')
 
