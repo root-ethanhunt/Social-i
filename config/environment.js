@@ -16,8 +16,8 @@ const development = {
   name:'development',
   asset_path:'./assets',
   session_cookie_key:'iamironman',
-  db:"sociali_devlopment",
-  //db :"mongodb+srv://social-i_app:9102764714@cluster0.ujvmk.mongodb.net/FirstDatabase?retryWrites=true&w=majority",
+  //db:"sociali_devlopment",
+  db :"mongodb+srv://social-i_app:9102764714@cluster0.ujvmk.mongodb.net/FirstDatabase?retryWrites=true&w=majority",
   smtp:{
     service:'gmail',
     host:'smtp.gmail.com',
@@ -42,8 +42,8 @@ const production = {
     name:'production',
     asset_path:process.env.SOCIALI_ASSET_PATH,
     session_cookie_key:'iamironman',
-    db:"sociali_production",
-   // db :"mongodb+srv://social-i_app:9102764714@cluster0.ujvmk.mongodb.net/FirstDatabase?retryWrites=true&w=majority",
+   // db:"sociali_production",
+    db :"mongodb+srv://social-i_app:9102764714@cluster0.ujvmk.mongodb.net/FirstDatabase?retryWrites=true&w=majority",
     // db:'sociali_production',
     smtp:{
       service:'gmail',
